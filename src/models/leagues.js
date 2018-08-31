@@ -20,6 +20,7 @@ Leagues.prototype.bindEvents = function(){
       const selectedCountry = this.countryNames[selectedIndex];
       const leaguesInCountry = this.getLeaguesbyCountry(selectedCountry);
       PubSub.publish('Leagues:league-data-ready', leaguesInCountry);
+      // console.log(leaguesInCountry);
     })
 }
 

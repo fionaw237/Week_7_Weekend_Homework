@@ -1,5 +1,6 @@
-const Leagues = require('./models/leagues.js')
-const SelectView = require('./views/select_view.js')
+const Leagues = require('./models/leagues.js');
+const SelectView = require('./views/select_view.js');
+const LeagueListView = require('./views/league_list_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   const leagues = new Leagues();
@@ -8,4 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const select = document.querySelector('#country-select');
   const selectView = new SelectView(select);
   selectView.bindEvents();
+
+  const leagueListContainer = document.querySelector('#leagues-container');
+  const leagueListView = new LeagueListView(leagueListContainer);
+  leagueListView.bindEvents();
 });
