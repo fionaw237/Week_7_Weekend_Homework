@@ -9,11 +9,19 @@ Leagues.prototype.bindEvents = function(){
   const request = new Request('http://api.football-data.org/v2/competitions');
 
   request.get((data) => {
-    console.log(data.competitions);
-    // this.leaguesData = data;
-    // Pubsub.publish('Leagues:data-loaded', this.leaguesData);
-  })
+    this.leaguesData = data.competitions;
+    const countryNames = this.getCountryNames(this.leaguesData);
+    PubSub.publish('Leagues:country-data-loaded', countryNames);
+    })
+}
 
+Leagues.prototype.getCountryNames = function(leagues){
+  const countries = leagues.map(league => league.area.name);
+
+  const uniqueCountriesArray =
+  countries.filter((country, index, self) => self.indexOf(country) === index)
+
+  return uniqueCountriesArray
 }
 
 module.exports = Leagues;
