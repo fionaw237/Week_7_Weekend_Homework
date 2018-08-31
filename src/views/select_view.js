@@ -8,7 +8,11 @@ SelectView.prototype.bindEvents = function(){
   PubSub.subscribe('Leagues:country-data-loaded', (event) => {
     const countryNames = event.detail;
     this.populate(countryNames);
-    console.log(this.element);
+  });
+
+  this.element.addEventListener('change', (event) => {
+    const selectedIndex = event.target.value;
+    PubSub.publish('SelectView:change', selectedIndex);
   })
 }
 

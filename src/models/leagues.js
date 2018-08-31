@@ -3,6 +3,7 @@ const Request = require('../helpers/request.js');
 
 const Leagues = function(){
   this.leaguesData = null;
+  this.countryNames = []
 }
 
 Leagues.prototype.bindEvents = function(){
@@ -10,18 +11,28 @@ Leagues.prototype.bindEvents = function(){
 
   request.get((data) => {
     this.leaguesData = data.competitions;
-    const countryNames = this.getCountryNames(this.leaguesData);
-    PubSub.publish('Leagues:country-data-loaded', countryNames);
+    this.countryNames = this.getCountryNames(this.leaguesData);
+    PubSub.publish('Leagues:country-data-loaded', this.countryNames);
+    })
+
+    PubSub.subscribe('SelectView:change', (event) => {
+      const selectedIndex = event.detail;
+      const selectedCountry = this.countryNames[selectedIndex];
+      const leaguesInCountry = this.getLeaguesbyCountry(selectedCountry);
+      PubSub.publish('Leagues:league-data-ready', leaguesInCountry);
     })
 }
 
 Leagues.prototype.getCountryNames = function(leagues){
   const countries = leagues.map(league => league.area.name);
-
   const uniqueCountriesArray =
   countries.filter((country, index, self) => self.indexOf(country) === index)
-
   return uniqueCountriesArray
+}
+
+Leagues.prototype.getLeaguesbyCountry = function(country){
+  const leaguesInCountry = this.leaguesData.filter( league => league.area.name === country)
+  return leaguesInCountry;
 }
 
 module.exports = Leagues;
