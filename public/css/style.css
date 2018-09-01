@@ -1,3 +1,11 @@
+.clickable-teams-label {
+  color: steelblue;
+}
+
+.team-list-item {
+  color: steelblue;
+}
+
 html {
   background-color: whitesmoke;
 }
@@ -38,6 +46,7 @@ div.team-div {
   width: 600px;
   border: 1px solid black;
   border-radius: 20px;
+  color: black;
 }
 
 .team-badge {

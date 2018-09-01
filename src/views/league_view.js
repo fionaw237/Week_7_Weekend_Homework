@@ -40,13 +40,14 @@ LeagueView.prototype.populateList = function(list){
   teams.classList.add('teams-list-heading')
   list.appendChild(teams);
   const teamsLabel = document.createElement('text');
-  teamsLabel.classList.add(`clickable-teams-label-${this.league.id}`);
-  teamsLabel.textContent = "(Click here to view teams)";
+  teamsLabel.classList.add(`clickable-teams-label`);
+  // teamsLabel.classList.add(`clickable-teams-label-${this.league.id}`);
+  teamsLabel.textContent = "(view all)";
   teams.appendChild(teamsLabel);
 }
 
 LeagueView.prototype.renderTeamsList = function(container){
-  const teamsLabel = container.querySelector(`.clickable-teams-label-${this.league.id}`);
+  const teamsLabel = container.querySelector(`.clickable-teams-label`);
   const teamsListHeading = container.querySelector('.teams-list-heading')
   teamsLabel.addEventListener('click', () => {
     teamsListHeading.removeChild(teamsListHeading.lastChild);
