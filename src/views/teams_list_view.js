@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const TeamView = require('./team_view.js')
 
 const TeamsListView = function(container, league){
   this.container = container;
@@ -14,7 +15,7 @@ TeamsListView.prototype.render = function(){
 }
 
 TeamsListView.prototype.getTeamsList = function(){
-  const teamsList = document.createElement('ul');
+  const teamsList = document.createElement('ol');
   this.populateList(teamsList);
   return teamsList;
 }
@@ -22,8 +23,13 @@ TeamsListView.prototype.getTeamsList = function(){
 TeamsListView.prototype.populateList = function(list){
   this.league.teams.forEach((team) => {
     const listItem = document.createElement('li');
+    listItem.classList.add('team-list-item');
     listItem.textContent = team.name;
     list.appendChild(listItem);
+    listItem.addEventListener('click', () => {
+      const teamView = new TeamView(listItem, team);
+      teamView.render();
+    })
   })
 }
 
