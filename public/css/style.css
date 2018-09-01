@@ -1,7 +1,45 @@
+html {
+  background-color: whitesmoke;
+}
+
+ol {
+  list-style-type: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#main {
+  font-family: 'Cantarell', sans-serif;
+  align-self: center;
+}
+
+#title {
+  font-family: 'Julius Sans One', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 30pt;
+}
+
+/*#leagues-container {
+  width: 380px;
+}*/
+
 .team-list-item {
   padding-bottom: 2px;
 }
 
-.team-div {
-  padding-bottom: 10px;
+div.team-div {
+  padding: 15px;
+  margin: 10px;
+  overflow: auto;
+  zoom: 1;
+  width: 600px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.team-badge {
+  float: right;
 }

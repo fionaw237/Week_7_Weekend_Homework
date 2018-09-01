@@ -11,6 +11,7 @@ TeamView.prototype.render = function(){
   const teamDiv = document.createElement('div');
   teamDiv.classList.add('team-div');
   const teamImage = document.createElement('img');
+  teamImage.classList.add('team-badge');
   if (this.team.crestUrl) {
     teamImage.src = this.team.crestUrl;
     teamImage.width = 200;
