@@ -6,9 +6,25 @@ const TeamsListView = function(container, league){
 }
 
 TeamsListView.prototype.render = function(){
-  const testString = document.createElement('div')
-  testString.textContent = "teams list goes here after click"
-  this.container.appendChild(testString)
+  const teamsListDiv = document.createElement('div');
+  teamsListDiv.classList.add("teams-list-div");
+  const teamsList = this.getTeamsList();
+  teamsListDiv.appendChild(teamsList);
+  this.container.appendChild(teamsListDiv);
+}
+
+TeamsListView.prototype.getTeamsList = function(){
+  const teamsList = document.createElement('ul');
+  this.populateList(teamsList);
+  return teamsList;
+}
+
+TeamsListView.prototype.populateList = function(list){
+  this.league.teams.forEach((team) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = team.name;
+    list.appendChild(listItem);
+  })
 }
 
 module.exports = TeamsListView;

@@ -26,28 +26,33 @@ LeagueView.prototype.getLeagueHeader = function(){
 
 LeagueView.prototype.getLeagueDetailsList = function(){
   const leagueUl = document.createElement('ul');
+  leagueUl.classList.add('league-ul')
   this.populateList(leagueUl);
   return leagueUl;
 }
 
 LeagueView.prototype.populateList = function(list){
-  const seasonDates = document.createElement('li')
+  const seasonDates = document.createElement('li');
   seasonDates.textContent = `Dates: ${this.league.currentSeason.startDate} to ${this.league.currentSeason.endDate}`;
   list.appendChild(seasonDates);
+  const teams = document.createElement('li');
+  teams.textContent = "Teams: ";
+  teams.classList.add('teams-list-heading')
+  list.appendChild(teams);
+  const teamsLabel = document.createElement('text');
+  teamsLabel.classList.add(`clickable-teams-label-${this.league.id}`);
+  teamsLabel.textContent = "(Click here to view teams)";
+  teams.appendChild(teamsLabel);
 }
 
 LeagueView.prototype.renderTeamsList = function(container){
-  const teamsLabel = document.createElement('p');
-  teamsLabel.classList.add("clickable-teams-label")
-  teamsLabel.textContent = "Click to view teams";
-  container.appendChild(teamsLabel);
+  const teamsLabel = container.querySelector(`.clickable-teams-label-${this.league.id}`);
+  const teamsListHeading = container.querySelector('.teams-list-heading')
   teamsLabel.addEventListener('click', () => {
-    container.removeChild(container.lastChild);
-    const teamsListView = new TeamsListView(container, this.league);
+    teamsListHeading.removeChild(teamsListHeading.lastChild);
+    const teamsListView = new TeamsListView(teamsListHeading, this.league);
     teamsListView.render();
   })
-
-
 }
 
 
