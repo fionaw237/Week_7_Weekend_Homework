@@ -2,6 +2,9 @@ const Leagues = require('./models/leagues.js');
 const SelectView = require('./views/select_view.js');
 const LeagueListView = require('./views/league_list_view.js');
 
+import Chart from 'chart.js'
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const leagues = new Leagues();
   leagues.bindEvents();
