@@ -26,8 +26,9 @@ TeamsListView.prototype.populateList = function(list){
     listItem.classList.add('team-list-item');
     listItem.textContent = team.name;
     list.appendChild(listItem);
+    const leaguesContainerRight = document.querySelector('#leagues-container-right');
     listItem.addEventListener('click', () => {
-      const teamView = new TeamView(listItem, team);
+      const teamView = new TeamView(leaguesContainerRight, team);
       teamView.render();
     })
   })

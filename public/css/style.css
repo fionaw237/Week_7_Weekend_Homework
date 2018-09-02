@@ -30,15 +30,24 @@ ul {
   font-size: 30pt;
 }
 
-/*#leagues-container {
-  width: 380px;
-}*/
+#leagues-container {
+  display: flex;
+}
+
+#leagues-container-left {
+  flex: 50%;
+}
+
+#leagues-container-right {
+  flex: 50%;
+}
 
 .team-list-item {
   padding-bottom: 2px;
 }
 
 div.team-div {
+  height: 90%;
   padding: 15px;
   margin: 10px;
   overflow: auto;

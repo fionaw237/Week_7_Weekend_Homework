@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectView = new SelectView(select);
   selectView.bindEvents();
 
-  const leagueListContainer = document.querySelector('#leagues-container');
+  const leagueListContainer = document.querySelector('#leagues-container-left');
   const leagueListView = new LeagueListView(leagueListContainer);
   leagueListView.bindEvents();
 });

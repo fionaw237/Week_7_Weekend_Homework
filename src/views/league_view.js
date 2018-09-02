@@ -10,7 +10,7 @@ LeagueView.prototype.render = function(){
   const leagueDiv = document.createElement('div');
 
   const leagueDivHeader = this.getLeagueHeader()
-  leagueDiv.appendChild(leagueDivHeader);
+  this.container.appendChild(leagueDivHeader);
   const leagueDetailsList = this.getLeagueDetailsList();
   leagueDiv.appendChild(leagueDetailsList);
   this.renderTeamsList(leagueDiv);
