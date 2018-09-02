@@ -1,7 +1,6 @@
 {
   "name": "weekend_homework",
   "version": "1.0.0",
-  "description": "",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,5 +8,21 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^2.7.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fionaw237/Week_7_Weekend_Homework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fionaw237/Week_7_Weekend_Homework/issues"
+  },
+  "homepage": "https://github.com/fionaw237/Week_7_Weekend_Homework#readme",
+  "description": ""
 }
