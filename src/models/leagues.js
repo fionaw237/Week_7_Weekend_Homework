@@ -14,7 +14,6 @@ Leagues.prototype.bindEvents = function(){
     const allLeagues = data.competitions;
     this.leaguesData =  allLeagues.filter(league => league.plan === "TIER_ONE");
     // NOTE: this api has lots of leagues available, but only 12 free ones :(
-    // console.log(this.leaguesData);
     this.countryNames = this.getCountryNames(this.leaguesData);
     PubSub.publish('Leagues:country-data-loaded', this.countryNames);
     })
@@ -24,29 +23,20 @@ Leagues.prototype.bindEvents = function(){
       const selectedCountry = this.countryNames[selectedIndex];
       const leaguesInCountry = this.getLeaguesbyCountry(selectedCountry);
       //add teams to selected leagues - I originally tried this for all 12 leagues but status 403 - too many requests at once I think.
-      // console.log(leaguesInCountry);
       const leaguesIncludingTeams = this.addTeamsToSelectedLeagues(leaguesInCountry);
-      // console.log(leaguesIncludingTeams);
       PubSub.publish('Leagues:league-data-ready', leaguesIncludingTeams);
-      // const teamsInLeagues = this.getTeamsinLeagues(leaguesInCountry)
-      // console.log(teamsInLeagues);
-      // PubSub.publish('Leagues:team-data-ready', teamsInLeagues);
     })
 }
 
 Leagues.prototype.addTeamsToSelectedLeagues = function(leagues){
   leagues.forEach((league) => {
-    // console.log(league);
     const teamsRequest =
      new Request(`http://api.football-data.org/v2/competitions/${league.id}/teams`);
-    //  console.log(teamsRequest);
+
     teamsRequest.get((data) => {
-      // console.log(data.teams);
       league.teams = data.teams
-      // PubSub.publish('Leagues:country-data-loaded', this.countryNames);
     });
-  })
-  // console.log(leagues);
+  });
   return leagues;
 }
 

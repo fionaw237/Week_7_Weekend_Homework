@@ -41,7 +41,6 @@ LeagueView.prototype.populateList = function(list){
   list.appendChild(teams);
   const teamsLabel = document.createElement('text');
   teamsLabel.classList.add(`clickable-teams-label`);
-  // teamsLabel.classList.add(`clickable-teams-label-${this.league.id}`);
   teamsLabel.textContent = "(view all)";
   teams.appendChild(teamsLabel);
 }

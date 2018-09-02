@@ -9,7 +9,6 @@ const LeagueListView = function(container){
 LeagueListView.prototype.bindEvents = function(){
   PubSub.subscribe('Leagues:league-data-ready', (event) => {
     this.leagues = event.detail;
-    // console.log(this.leagues);
     this.country = this.leagues[0].area.name;
     this.render();
   })
@@ -30,7 +29,6 @@ LeagueListView.prototype.renderCountryHeading = function(){
 
 LeagueListView.prototype.renderCompetitions = function(){
   this.leagues.forEach((league) => {
-    // console.log(league);
     const leagueView = new LeagueView(this.container, league);
     leagueView.render();
   });

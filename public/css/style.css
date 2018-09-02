@@ -65,8 +65,6 @@ ul.team-details-ul {
 div.team-div {
   text-align: center;
   height: 75%;
-  /*padding: 15px;*/
-  /*margin: 10px;*/
   overflow: auto;
   zoom: 1;
   width: 600px;
@@ -81,6 +79,3 @@ div.team-div {
 .team-header {
   margin-top: 20px;
 }
-/*.team-badge {
-  margin-top: 30px;
-}*/
