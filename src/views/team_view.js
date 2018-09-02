@@ -19,7 +19,10 @@ TeamView.prototype.render = function(){
 
   const teamDetails = this.getTeamDetails();
 
-  teamDiv.appendChild(teamDetails);
+  if (teamDetails){
+    teamDiv.appendChild(teamDetails);
+  }
+
   this.container.appendChild(teamDiv);
 }
 
@@ -66,7 +69,8 @@ TeamView.prototype.getTeamDetails = function(){
     teamDetails.appendChild(teamColours);
   }
 
-  if (this.team.address){
+  // for some reason some teams have address = "null null null"
+  if (this.team.address && this.team.address != "null null null"){
     const teamAddress = document.createElement('li');
     teamAddress.textContent = `Address: ${this.team.address}`;
     teamDetails.appendChild(teamAddress);
