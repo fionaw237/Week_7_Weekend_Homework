@@ -19,9 +19,12 @@ TeamView.prototype.render = function(){
   teamImage.classList.add('team-badge');
   if (this.team.crestUrl) {
     teamImage.src = this.team.crestUrl;
-    teamImage.width = 240;
-    teamDiv.appendChild(teamImage);
   }
+  else {
+    teamImage.src = "https://images.pexels.com/photos/52504/the-ball-sport-game-football-52504.jpeg?auto=compress&cs=tinysrgb&h=650&w=940";
+  }
+  teamImage.width = 240;
+  teamDiv.appendChild(teamImage);
 
   const teamDetails = document.createElement('ul');
   teamDetails.classList.add('team-details-ul')
