@@ -10,16 +10,22 @@ TeamView.prototype.render = function(){
   }
   const teamDiv = document.createElement('div');
   teamDiv.classList.add('team-div');
+  const teamHeader = document.createElement('h1');
+  teamHeader.classList.add('team-header');
+  teamHeader.textContent = this.team.name;
+  teamDiv.appendChild(teamHeader);
+
   const teamImage = document.createElement('img');
   teamImage.classList.add('team-badge');
   if (this.team.crestUrl) {
     teamImage.src = this.team.crestUrl;
-    teamImage.width = 200;
+    teamImage.width = 240;
     teamDiv.appendChild(teamImage);
   }
-  const teamDetails = document.createElement('ul');
 
-  console.log(this.team);
+  const teamDetails = document.createElement('ul');
+  teamDetails.classList.add('team-details-ul')
+
   const teamFounded = document.createElement('li');
   teamFounded.textContent = `Founded in ${this.team.founded}`;
   const teamWebsite = document.createElement('li');

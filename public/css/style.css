@@ -6,6 +6,14 @@
   color: steelblue;
 }
 
+#select-wrapper {
+  font-size: 14pt;
+}
+
+#country-select {
+  font-size: 11pt;
+}
+
 html {
   background-color: whitesmoke;
 }
@@ -14,13 +22,20 @@ ol {
   list-style-type: none;
 }
 
-ul {
+ul.league-ul {
   list-style-type: none;
+}
+
+ul.team-details-ul {
+  width: 55%;
+  margin: auto;
+  text-align: left;
 }
 
 #main {
   font-family: 'Cantarell', sans-serif;
   align-self: center;
+  margin: 20px;
 }
 
 #title {
@@ -32,6 +47,7 @@ ul {
 
 #leagues-container {
   display: flex;
+  margin: 20px;
 }
 
 #leagues-container-left {
@@ -47,17 +63,24 @@ ul {
 }
 
 div.team-div {
-  height: 90%;
-  padding: 15px;
-  margin: 10px;
+  text-align: center;
+  height: 75%;
+  /*padding: 15px;*/
+  /*margin: 10px;*/
   overflow: auto;
   zoom: 1;
   width: 600px;
   border: 1px solid black;
   border-radius: 20px;
   color: black;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.team-badge {
-  float: right;
+.team-header {
+  margin-top: 20px;
 }
+/*.team-badge {
+  margin-top: 30px;
+}*/
