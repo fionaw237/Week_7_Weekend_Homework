@@ -23,7 +23,7 @@ LeagueListView.prototype.render = function(){
 LeagueListView.prototype.renderCountryHeading = function(){
   const header = document.createElement('h1')
   header.classList.add('country-header');
-  header.textContent = `${this.country}`;
+  header.textContent = `Competitions in ${this.country}`;
   this.container.appendChild(header);
 }
 

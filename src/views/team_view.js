@@ -48,22 +48,35 @@ TeamView.prototype.getTeamDetails = function(){
   const teamDetails = document.createElement('ul');
   teamDetails.classList.add('team-details-ul');
 
-  const teamFounded = document.createElement('li');
-  teamFounded.textContent = `Founded in ${this.team.founded}`;
-  const teamWebsite = document.createElement('li');
-  teamWebsite.textContent = `Website: ${this.team.website}`;
-  const teamAddress = document.createElement('li');
-  teamAddress.textContent = `Address: ${this.team.address}`;
-  const teamColours = document.createElement('li');
-  teamColours.textContent = `Colours: ${this.team.clubColors}`;
-  const teamPhone = document.createElement('li');
-  teamPhone.textContent = `Phone: ${this.team.phone}`;
+  if (this.team.founded){
+    const teamFounded = document.createElement('li');
+    teamFounded.textContent = `Founded in ${this.team.founded}`;
+      teamDetails.appendChild(teamFounded);
+  }
 
-  teamDetails.appendChild(teamFounded);
-  teamDetails.appendChild(teamColours);
-  teamDetails.appendChild(teamWebsite);
-  teamDetails.appendChild(teamAddress);
-  teamDetails.appendChild(teamPhone);
+  if (this.team.website){
+    const teamWebsite = document.createElement('li');
+    teamWebsite.textContent = `Website: ${this.team.website}`;
+    teamDetails.appendChild(teamWebsite);
+  }
+
+  if (this.team.clubColors){
+    const teamColours = document.createElement('li');
+    teamColours.textContent = `Colours: ${this.team.clubColors}`;
+    teamDetails.appendChild(teamColours);
+  }
+
+  if (this.team.address){
+    const teamAddress = document.createElement('li');
+    teamAddress.textContent = `Address: ${this.team.address}`;
+    teamDetails.appendChild(teamAddress);
+  }
+
+  if (this.team.phone){
+    const teamPhone = document.createElement('li');
+    teamPhone.textContent = `Phone: ${this.team.phone}`;
+    teamDetails.appendChild(teamPhone);
+  }
 
   return teamDetails;
 }
